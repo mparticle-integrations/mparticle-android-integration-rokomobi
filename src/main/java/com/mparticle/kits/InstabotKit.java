@@ -3,6 +3,7 @@ package com.mparticle.kits;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.mparticle.MPEvent;
@@ -25,6 +26,11 @@ public class InstabotKit extends KitIntegration implements KitIntegration.EventL
 
     @Override
     protected List<ReportingMessage> onKitCreate(Map<String, String> settings, Context context) {
+        if(!settings.containsKey("apiKey") || TextUtils.isEmpty(settings.get("apiKey"))){
+            Log.e("InstabotKit", "Instabot initialization was failed. Please set \"apiKey\".");
+            return null;
+        }
+
         Instabot.start(settings.get("apiKey"), context, new Instabot.CallbackStart() {
             @Override
             public void start() {
