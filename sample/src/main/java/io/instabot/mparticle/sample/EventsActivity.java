@@ -1,4 +1,4 @@
-package com.rokolabs.mparticle.sample;
+package io.instabot.mparticle.sample;
 
 
 import android.os.Bundle;

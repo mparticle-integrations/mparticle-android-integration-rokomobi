@@ -1,11 +1,11 @@
 #Kit
--keep class com.mparticle.kits.RokoMobiKit { *; }
+-keep class com.mparticle.kits.InstabotKit { *; }
 
 #ROKO Mobi
 -keepattributes Signature
 -keepattributes *Annotation*
--keep class com.rokolabs.sdk.** { *; }
--dontwarn com.rokolabs.sdk.**
+-keep class io.instabot.sdk.** { *; }
+-dontwarn io.instabo.sdk.**
 
 #Gson
 -keep class sun.misc.Unsafe { *; }

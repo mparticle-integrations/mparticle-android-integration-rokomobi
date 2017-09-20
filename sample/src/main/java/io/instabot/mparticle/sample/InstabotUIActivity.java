@@ -1,4 +1,4 @@
-package com.rokolabs.mparticle.sample;
+package io.instabot.mparticle.sample;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.mparticle.MParticle;
-import com.mparticle.kits.RokoMobiKit;
-import com.mparticle.kits.RokoMobiProvider;
+import com.mparticle.kits.InstabotKit;
+import com.mparticle.kits.InstabotProvider;
 
 /**
  * Created by sobolev on 7/31/17.
@@ -30,7 +30,7 @@ public class InstabotUIActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String conversationId = conversationIdField.getText().toString();
-                ((RokoMobiProvider) MParticle.getInstance().getKitInstance(MParticle.ServiceProviders.ROKOMOBI)).instabot().show(conversationId);
+                ((InstabotProvider) MParticle.getInstance().getKitInstance(MParticle.ServiceProviders.INSTABOT)).instabot().show(conversationId);
             }
         });
     }
