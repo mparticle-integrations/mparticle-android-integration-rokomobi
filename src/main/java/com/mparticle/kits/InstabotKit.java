@@ -31,12 +31,7 @@ public class InstabotKit extends KitIntegration implements KitIntegration.EventL
             throw new IllegalArgumentException("Instabot initialization was failed. Please set \"apiKey\".");
         }
 
-        Instabot.start(apiKey, context, new Instabot.CallbackStart() {
-            @Override
-            public void start() {
-                Instabot.getSettings().setInstabotActivity("io.instabot.INSTABOT_ACTIVITY");
-            }
-        });
+        Instabot.start(apiKey, context);
         return null;
     }
 
