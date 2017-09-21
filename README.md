@@ -1,9 +1,3 @@
-## Instabot Kit Integration
-
-[See here for more information](https://github.com/mParticle/mparticle-android-sdk/wiki/Kit-Development) on how to use this example to write a new kit.
-
-This repository contains the [Instabot](https://instabot.io/) integration for the [mParticle Android SDK](https://github.com/mParticle/mparticle-android-sdk).
-
 ### Adding the integration
 
 1. Add the kit dependency to your app's build.gradle:
@@ -18,7 +12,7 @@ This repository contains the [Instabot](https://instabot.io/) integration for th
 
 ### Documentation
 
-[Example integration](http://docs.mparticle.com/?java#REPLACEME)
+[Instabot integration](http://docs.mparticle.com/integrations/instabot)
 
 ### License
 

@@ -3,13 +3,12 @@ package com.mparticle.kits;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.mparticle.MPEvent;
 import com.mparticle.MParticle;
-import com.rokolabs.sdk.tools.ThreadUtils;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -21,17 +20,18 @@ import io.instabot.sdk.analytics.Event;
 import io.instabot.sdk.push.Push;
 import io.instabot.sdk.push.PushConstants;
 import io.instabot.sdk.push.PushNotificationHelper;
+import io.instabot.sdk.tools.ThreadUtils;
 
 public class InstabotKit extends KitIntegration implements KitIntegration.EventListener, KitIntegration.PushListener, KitIntegration.AttributeListener, InstabotProvider {
 
     @Override
     protected List<ReportingMessage> onKitCreate(Map<String, String> settings, Context context) {
-        if(!settings.containsKey("apiKey") || TextUtils.isEmpty(settings.get("apiKey"))){
-            Log.e("InstabotKit", "Instabot initialization was failed. Please set \"apiKey\".");
-            return null;
+        String apiKey = settings.get("apiKey");
+        if(KitUtils.isEmpty(apiKey)){
+            throw new IllegalArgumentException("Instabot initialization was failed. Please set \"apiKey\".");
         }
 
-        Instabot.start(settings.get("apiKey"), context, new Instabot.CallbackStart() {
+        Instabot.start(apiKey, context, new Instabot.CallbackStart() {
             @Override
             public void start() {
                 Instabot.getSettings().setInstabotActivity("io.instabot.INSTABOT_ACTIVITY");
@@ -79,7 +79,10 @@ public class InstabotKit extends KitIntegration implements KitIntegration.EventL
     public List<ReportingMessage> logEvent(MPEvent mpEvent) {
         Log.e(getName(), mpEvent.getEventName());
         Analytics.addEvents(new Event(mpEvent.getEventName()));
-        return null;
+
+        List<ReportingMessage> messages = new LinkedList<ReportingMessage>();
+        messages.add(ReportingMessage.fromEvent(this, mpEvent));
+        return messages;
     }
 
     @Override
