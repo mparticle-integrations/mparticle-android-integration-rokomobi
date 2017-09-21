@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ex. src/main/res/values/mparticle.xml -->
+<resources>
+    <bool name="mp_enableDebugMode">true</bool>
+    <bool name="mp_enablePush">true</bool>
+    <string name="mp_pushSenderId">REPLACE ME</string>
+    <string name="mp_key">REPLACE ME</string>
+    <string name="mp_secret">REPLACE ME</string>
+</resources>
