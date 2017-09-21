@@ -114,7 +114,7 @@ public class InstabotKit extends KitIntegration implements KitIntegration.EventL
         preferences.edit().putString("deviceToken", instanceId).apply();
         Push.register(getContext(), instanceId);
         Push.start(senderId);
-        return false;
+        return true;
     }
 
     @Override
