@@ -8,7 +8,7 @@ This repository contains the [Instabot](https://instabot.io/) integration for th
 
     ```groovy
     dependencies {
-        compile 'com.mparticle:android-instabot-kit:4+'
+        compile 'com.mparticle:android-instabot-kit:5+'
     }
     ```
 2. Follow the mParticle Android SDK [quick-start](https://github.com/mParticle/mparticle-android-sdk), then rebuild and launch your app, and verify that you see `"Instabot detected"` in the output of `adb logcat`.
