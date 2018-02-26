@@ -100,7 +100,7 @@ public class InstabotKit extends KitIntegration implements KitIntegration.EventL
                     PushNotificationHelper.pushNotificationSent(bundle.getString(PushConstants.EXTRA_OVERLAY_ID));
                     PushNotificationHelper.showDefaultNotification(context, bundle);
                 } else if (bundle.containsKey(PushConstants.EXTRA_CONVERSATION_ID)) {
-                    PushNotificationHelper.showInstabot(bundle.getString(PushConstants.EXTRA_CONVERSATION_ID));
+                    PushNotificationHelper.showInstabot(bundle.getLong(PushConstants.EXTRA_CONVERSATION_ID), context, bundle);
                 } else {
                     PushNotificationHelper.showDefaultNotification(context, bundle);
                 }
