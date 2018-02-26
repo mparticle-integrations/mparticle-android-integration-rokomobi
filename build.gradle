@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.mparticle:android-kit-plugin:+'
+        classpath 'com.mparticle:android-kit-plugin:' + project.version
     }
 }
 
@@ -18,13 +18,13 @@ repositories {
 
 android {
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
     }
 }
 
 dependencies {
     implementation 'com.android.support:appcompat-v7:24.2.1'
     implementation 'com.android.support:recyclerview-v7:24.2.1'
-    api 'io.instabot:instabot-android-sdk:1.0.0@aar'
+    api 'io.instabot:instabot-android-sdk:1.0.4@aar'
     implementation 'com.google.code.gson:gson:2.7'
 }
