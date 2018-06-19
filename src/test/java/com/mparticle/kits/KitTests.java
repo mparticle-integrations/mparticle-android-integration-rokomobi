@@ -1,6 +1,8 @@
 package com.mparticle.kits;
 
 
+import com.mparticle.kits_core.KitIntegration;
+
 import org.junit.Test;
 
 import java.util.Map;

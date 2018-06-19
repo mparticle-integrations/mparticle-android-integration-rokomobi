@@ -7,6 +7,8 @@ import android.util.Log;
 
 import com.mparticle.MPEvent;
 import com.mparticle.MParticle;
+import com.mparticle.kits_core.KitIntegration;
+import com.mparticle.kits_core.ReportingMessage;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -22,10 +24,10 @@ import io.instabot.sdk.push.PushConstants;
 import io.instabot.sdk.push.PushNotificationHelper;
 import io.instabot.sdk.tools.ThreadUtils;
 
-public class InstabotKit extends KitIntegration implements KitIntegration.EventListener, KitIntegration.PushListener, KitIntegration.AttributeListener, InstabotProvider {
+public class InstabotKit extends AbstractKitIntegration implements KitIntegration.EventListener, KitIntegration.PushListener, KitIntegration.AttributeListener, InstabotProvider {
 
     @Override
-    protected List<ReportingMessage> onKitCreate(Map<String, String> settings, Context context) {
+    public List<ReportingMessage> onKitCreate(Map<String, String> settings, Context context) {
         String apiKey = settings.get("apiKey");
         if(KitUtils.isEmpty(apiKey)){
             throw new IllegalArgumentException("Instabot initialization was failed. Please set \"apiKey\".");
@@ -76,7 +78,7 @@ public class InstabotKit extends KitIntegration implements KitIntegration.EventL
         Analytics.addEvents(new Event(mpEvent.getEventName()));
 
         List<ReportingMessage> messages = new LinkedList<ReportingMessage>();
-        messages.add(ReportingMessage.fromEvent(this, mpEvent));
+        messages.add(ReportingMessageImpl.fromEvent(this, mpEvent));
         return messages;
     }
 
