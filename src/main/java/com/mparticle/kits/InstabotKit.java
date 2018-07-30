@@ -7,8 +7,8 @@ import android.util.Log;
 
 import com.mparticle.MPEvent;
 import com.mparticle.MParticle;
-import com.mparticle.kits_core.KitIntegration;
-import com.mparticle.kits_core.ReportingMessage;
+import com.mparticle.kits.core.KitIntegration;
+import com.mparticle.kits.core.ReportingMessage;
 
 import java.util.LinkedList;
 import java.util.List;

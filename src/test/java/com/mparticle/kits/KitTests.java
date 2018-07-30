@@ -1,7 +1,7 @@
 package com.mparticle.kits;
 
 
-import com.mparticle.kits_core.KitIntegration;
+import com.mparticle.kits.core.KitIntegration;
 
 import org.junit.Test;
 
